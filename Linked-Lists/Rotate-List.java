@@ -46,7 +46,7 @@ class Solution {
     Use the code for the edge cases created in the “Plan” section.
 
     Evaluate
-    Time: O(n)
+    Time: O(n * k)
     Performed multiple passes through list
     Space: O(1)
     Only multiple dummy nodes created 

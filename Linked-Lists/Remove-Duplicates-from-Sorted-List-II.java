@@ -55,7 +55,7 @@ class Solution {
             if(left.val == right.val) {
                 while(left.val == right.val) {
                     if(right.next == null) {
-                        right = right.next;
+                        right = null;
                         break;
                     }
                     else {

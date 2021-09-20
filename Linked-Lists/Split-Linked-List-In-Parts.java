@@ -38,8 +38,10 @@ class Solution {
         move the pointer "x" nodes ahead
         add prev pointer to array, set prev to current.next, set current.next to null, set current = prev
         continue to end of linked list
-        
-    Better explanation: 
+    
+	Evaluate
+	Time: O(n + k): you have to loop through the array (size k) and the linked list (size n)
+	Space: O(k): the additional space used in writing the answer
     */
     public ListNode[] splitListToParts(ListNode head, int k) {
         if(head == null) {

@@ -35,6 +35,11 @@ class Solution {
         the map contains a key for the current letter for "s"
         if yes, then check the mapping between letter in s and letter in t
         if the mapping does not match then return false
+    
+
+	Evaluate
+	Time: O(n)
+	Space: O(n)
     */
     public boolean isIsomorphic(String s, String t) {
         if(s == null || t == null) {

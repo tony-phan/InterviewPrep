@@ -47,9 +47,6 @@ class Solution {
             int robbedAmount = nums[i] + dp[i - 2]; // we do dp[i - 2] b/c we want to ignore adjacent homes
             dp[i] = Math.max(robbedAmount, dp[i - 1]);
         }
-        for(int i : dp) {
-            System.out.print(i + " ");
-        }
         return dp[dp.length - 1];
     }
 }

@@ -23,57 +23,54 @@ class Solution {
     Time: O(N * M)
     Space: O(N * M)
     */
+    int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     public void solve(char[][] board) {
         if(board == null || board.length <= 2 || board[0].length <= 2) {
             return;
         }
         
         int rows = board.length, columns = board[0].length;
-        // loop through all the left and right borders
-        for(int i = 0; i < rows; ++i) {
-            if(board[i][0] == 'O') {
-                dfs(board, i, 0);
+        for(int i = 0; i < columns; ++i) {
+            if(board[0][i] == 'O') { // first row
+                dfs(board, 0, i);
             }
-            
-            if(board[i][columns - 1] == 'O') {
-                dfs(board, i, columns - 1);
+            if(board[rows - 1][i] == 'O') { // last row
+                dfs(board, rows - 1, i);
             }
         }
-        // loop through all the top and bottom borders
-        for(int j = 0; j < columns; ++j) {
-            if(board[0][j] == 'O') {
-                dfs(board, 0, j);
+        for(int i = 0; i < rows; ++i) {
+            if(board[i][0] == 'O') { // first column
+                dfs(board, i, 0);
             }
-            if(board[rows - 1][j] == 'O') {
-                dfs(board, rows - 1, j);
+            if(board[i][columns - 1] == 'O') { // last column
+                dfs(board, i, columns - 1);
             }
         }
         
         for(int i = 0; i < rows; ++i) {
             for(int j = 0; j < columns; ++j) {
-                if(board[i][j] == 'O') {
+                if(board[i][j] == 'X') {
+                    continue;
+                }
+                else if(board[i][j] == 'O') {
                     board[i][j] = 'X';
                 }
-                else if(board[i][j] == '#') {
+                else {
                     board[i][j] = 'O';
                 }
             }
         }
     }
-    
     private void dfs(char[][] board, int row, int column) {
-        if(row < 0 || row >= board.length || column < 0 || column >= board[0].length) {
+        if(!inBoundary(board, row, column) || board[row][column] == 'X' || board[row][column] == '*') {
             return;
         }
-        
-        if(board[row][column] == 'X' || board[row][column] == '#') {
-            return;
-        }
-        
-        board[row][column] = '#';
-        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // top, bottom, left, right
+        board[row][column] = '*';
         for(int[] direction : directions) {
             dfs(board, row + direction[0], column + direction[1]);
         }
+    }
+    private boolean inBoundary(char[][] board, int row, int column) {
+        return row >= 0 && row < board.length && column >= 0 && column < board[0].length;
     }
 }

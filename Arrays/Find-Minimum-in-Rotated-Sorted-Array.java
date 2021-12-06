@@ -1,4 +1,3 @@
-class Solution {
     /*
     Understand
     Since this is a rotated array , we have to do a modified binary search
@@ -28,13 +27,13 @@ class Solution {
     Space: O(1)
     */
     public int findMin(int[] nums) {
-        if(nums.length == 0) {
-            return -1;
+        if(nums.length == 1) {
+            return nums[0];
         }
         
         int left = 0, right = nums.length - 1;
         while(left <= right) {
-            int middle = left + (right - left) / 2;
+            int middle = left + (right - left)/2;
             if(middle > 0 && nums[middle - 1] > nums[middle]) {
                 return nums[middle];
             }

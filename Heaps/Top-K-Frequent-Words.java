@@ -31,8 +31,7 @@ class Solution {
         
         List<String> result = new ArrayList<>();
         Map<String, Integer> map = new HashMap<>();
-        Comparator<String> comparator = new Comparator<>() {
-            @Override
+        Queue<String> minHeap = new PriorityQueue<>(new Comparator<String>() {
             public int compare(String word1, String word2) {
                 if(map.get(word1) == map.get(word2)) {
                     return word2.compareTo(word1);
@@ -46,8 +45,7 @@ class Solution {
                     }
                 }
             }
-        };
-        Queue<String> minHeap = new PriorityQueue<>(comparator);       
+        });       
         
         getWordFrequencies(map, words);
         for(Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -67,12 +65,7 @@ class Solution {
     
     private void getWordFrequencies(Map<String, Integer> map, String[] words) {
         for(String word : words) {
-            if(!map.containsKey(word)) {
-                map.put(word, 1);
-            }
-            else {
-                map.put(word, map.get(word) + 1);
-            }
+            map.put(word, map.getOrDefault(word, 0) + 1);
         }
     }
 }

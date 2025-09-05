@@ -28,3 +28,11 @@ Array.Fill(a, "a");
 var fruits = new List<string> { "Apple", "Banana", "Cherry" };
 
 string s = string.Join(", ", fruits); // "Apple, Banana, Cherry"
+
+# Dictionary
+
+### Check if a key exists
+
+Dictionary<int, int> dict = new Dictionary<int, int>();
+
+dict.ContainsKey(0);

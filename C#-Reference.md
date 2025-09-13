@@ -36,3 +36,11 @@ string s = string.Join(", ", fruits); // "Apple, Banana, Cherry"
 Dictionary<int, int> dict = new Dictionary<int, int>();
 
 dict.ContainsKey(0);
+
+### Looping through a dictionary
+
+Dictionary<int,int> dp = new Dictionary<int,int>();
+
+foreach(KeyValuePair<int, int> a in dp) {
+Console.WriteLine($"Key: {a.Key} -> Value: {a.Value}");
+}

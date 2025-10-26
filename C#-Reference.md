@@ -6,6 +6,10 @@ int.MaxValue = 2147483647
 int.MinValue = -2147483648  
 int x = int.MinValue;
 
+### Convert string to int
+
+int num = int.Parse("500");
+
 # Array & List
 
 ### Convert array to list
